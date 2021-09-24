@@ -56,10 +56,6 @@
               "target": "Package",
               "version": "[6.1.0, )"
             },
-            "NUnit": {
-              "target": "Package",
-              "version": "[3.13.1, )"
-            },
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[3.17.0, )"
@@ -124,6 +120,10 @@
         "net5.0": {
           "targetAlias": "netcoreapp5.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.9, )"
@@ -143,6 +143,10 @@
             "NBuilder": {
               "target": "Package",
               "version": "[6.1.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

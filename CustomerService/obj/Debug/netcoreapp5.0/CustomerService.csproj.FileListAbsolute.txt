@@ -32,3 +32,9 @@ C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerServ
 C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\Castle.Core.dll
 C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\Moq.dll
 C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\FizzWare.NBuilder.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\FluentAssertions.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\nunit.framework.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Jemi\Desktop\Talent academy\angular\dotnot\CustomerService\CustomerService\bin\Debug\netcoreapp5.0\libman.json

@@ -17,7 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CustomerService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -40,10 +40,11 @@ namespace CustomerService.Controllers
             if (user != null)
             {
                 var tokenstring=this.GenerateJWTToken(user);
-               unauthorizedresponse = base.Ok (new
-               {
-                   token = tokenstring,
-                     userDetails = user,
+                unauthorizedresponse = base.Ok(new
+                {
+                    token = tokenstring,
+                    user.UserRole,
+                    user.FullName
                 });
             }
             return unauthorizedresponse;
@@ -56,16 +57,20 @@ namespace CustomerService.Controllers
         }
          private string GenerateJWTToken(Credential credential)
           {
-             //  var secretkey = this.configReader["Jwt:SecretKey"];
-              // var jwtIssuer = this.configReader["Jwt:Issuer"];
-               //var jwtAudience=this.configReader["Jwt:Audience"];
-              const string encryption_key = "xecretKeywqejane";
-              const string jwtIssuer = "[https://localhost:44383/]https://localhost:44383/";  
-              const string jwtAudience= "[https://localhost:44383/]https://localhost:44383/";
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configReader["Jwt:SecretKey"]));
+            var SigningCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            //  var secretkey = this.configReader["Jwt:SecretKey"];
+            // var jwtIssuer = this.configReader["Jwt:Issuer"];
+            //var jwtAudience=this.configReader["Jwt:Audience"];
+        //  const string encryption_key = "xecretKeywqejane";
+        //    const string jwtIssuer = "[https://localhost:55163/]https://localhost:55163/";
+         // const string jwtAudience= "[https://localhost:55163/]https://localhost:55163/";
+            
 
-                 // var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretkey));
-              var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(encryption_key));
-              var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            // var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretkey));
+          //var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(encryption_key));
+            //var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
               var claims = new[]
               {
                   new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub,credential.UserName),
@@ -75,11 +80,11 @@ namespace CustomerService.Controllers
               };
              var token = new JwtSecurityToken
               (
-                  issuer: jwtIssuer,
-                  audience: jwtAudience,
+                  issuer: configReader["Jwt:Issuer"],
+                audience: configReader["Jwt:Audience"],
                   claims: claims,
                   expires: DateTime.Now.AddMinutes(30),
-                  signingCredentials: signingCredentials
+                  signingCredentials:SigningCredentials
               );
               return new JwtSecurityTokenHandler().WriteToken(token);
           
